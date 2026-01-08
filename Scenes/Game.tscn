@@ -1,17 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0cpahkcpkq55"]
+[gd_scene load_steps=5 format=3 uid="uid://d0cpahkcpkq55"]
 
 [ext_resource type="Texture2D" uid="uid://qglthk7gvvep" path="res://AssetBundle/Sprites/ForestBackground.png" id="1_iukft"]
-[ext_resource type="PackedScene" uid="uid://c30gm4psscmdb" path="res://Scenes/player.tscn" id="2_gl6un"]
+[ext_resource type="PackedScene" uid="uid://gt1aqc231qff" path="res://Scenes/Player.tscn" id="2_gl6un"]
+[ext_resource type="PackedScene" uid="uid://c7hc8bnh13v4" path="res://Scenes/Slime.tscn" id="3_j5yw3"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gl6un"]
+distance = -2.0253448
 
 [node name="Node2D" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Background1" type="Sprite2D" parent="."]
 position = Vector2(-120, 1)
 texture = ExtResource("1_iukft")
 metadata/_edit_lock_ = true
-
-[node name="AnimatedSprite2D" parent="Background1" instance=ExtResource("2_gl6un")]
-position = Vector2(-14, 69)
 
 [node name="Background2" type="Sprite2D" parent="."]
 position = Vector2(120, 1)
@@ -22,3 +24,39 @@ metadata/_edit_lock_ = true
 position = Vector2(2, 2)
 zoom = Vector2(2.475, 2.355)
 metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_gl6un")]
+position = Vector2(-132, 72)
+
+[node name="Boundary" type="Node2D" parent="."]
+position = Vector2(0, 140)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_gl6un")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D2"]
+position = Vector2(1.0000004, -95.99999)
+rotation = -3.1415927
+shape = SubResource("WorldBoundaryShape2D_gl6un")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D3"]
+position = Vector2(235, -139)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_gl6un")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D4"]
+position = Vector2(-231, -139)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_gl6un")
+
+[node name="Slime" parent="." instance=ExtResource("3_j5yw3")]
+position = Vector2(87, 67)
