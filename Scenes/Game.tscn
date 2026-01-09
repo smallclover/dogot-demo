@@ -1,14 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0cpahkcpkq55"]
+[gd_scene load_steps=12 format=3 uid="uid://d0cpahkcpkq55"]
 
 [ext_resource type="Texture2D" uid="uid://qglthk7gvvep" path="res://AssetBundle/Sprites/ForestBackground.png" id="1_iukft"]
+[ext_resource type="Script" uid="uid://d0utxh6tfugdx" path="res://Script/GameManager.gd" id="1_kldst"]
 [ext_resource type="PackedScene" uid="uid://gt1aqc231qff" path="res://Scenes/Player.tscn" id="2_gl6un"]
 [ext_resource type="PackedScene" uid="uid://c7hc8bnh13v4" path="res://Scenes/Slime.tscn" id="3_j5yw3"]
+[ext_resource type="FontFile" uid="uid://07tsntub6o8s" path="res://AssetBundle/Uranus_Pixel_11Px.ttf" id="5_b2bpf"]
+[ext_resource type="Texture2D" uid="uid://balv7yokjovbv" path="res://AssetBundle/Menu/pause_normal.png" id="6_2irst"]
+[ext_resource type="Theme" uid="uid://d1g0rj6o8s8ny" path="res://Theme/ui_theme.tres" id="6_bf53h"]
+[ext_resource type="Script" uid="uid://baesmofnebvaj" path="res://Script/menu.gd" id="7_71axn"]
+[ext_resource type="Texture2D" uid="uid://yr6xem88lsnx" path="res://AssetBundle/Menu/pause_pressed.png" id="7_bf53h"]
+[ext_resource type="Texture2D" uid="uid://bxbhahis5iihx" path="res://AssetBundle/Menu/pause_hover.png" id="8_71axn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gl6un"]
 distance = -2.0253448
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("spawn_timer", "score_label", "game_over_label")]
 y_sort_enabled = true
+script = ExtResource("1_kldst")
+slime_scene = ExtResource("3_j5yw3")
+spawn_timer = NodePath("Timer")
+score_label = NodePath("UI/Score")
+game_over_label = NodePath("UI/Game Over Label")
 
 [node name="Background1" type="Sprite2D" parent="."]
 position = Vector2(-120, 1)
@@ -22,7 +34,7 @@ metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, 2)
-zoom = Vector2(2.475, 2.355)
+zoom = Vector2(0.5, 0.5)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_gl6un")]
@@ -58,5 +70,141 @@ position = Vector2(-231, -139)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_gl6un")
 
-[node name="Slime" parent="." instance=ExtResource("3_j5yw3")]
-position = Vector2(87, 67)
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="UI"]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 67.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_b2bpf")
+theme_override_font_sizes/font_size = 12
+text = "Score: 0"
+metadata/_edit_lock_ = true
+
+[node name="Game Over Label" type="Label" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -10.5
+offset_right = 121.0
+offset_bottom = 70.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.42892128, 0.71155083, 0.30904356, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("5_b2bpf")
+theme_override_font_sizes/font_size = 20
+text = "Game Over!"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Game By Smallclover" type="Label" parent="UI/Game Over Label"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.5
+offset_top = -17.5
+offset_right = 120.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.42745098, 0.70980394, 0.30980393, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("5_b2bpf")
+theme_override_font_sizes/font_size = 12
+text = "Game By Smallclover"
+horizontal_alignment = 1
+
+[node name="PauseUI" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Control" type="Control" parent="PauseUI" node_paths=PackedStringArray("pause_panel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_bf53h")
+script = ExtResource("7_71axn")
+pause_panel = NodePath("PausePanel")
+
+[node name="PauseButton" type="TextureButton" parent="PauseUI/Control"]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 6.0
+offset_right = 229.0
+offset_bottom = 22.0
+focus_mode = 0
+texture_normal = ExtResource("6_2irst")
+texture_pressed = ExtResource("7_bf53h")
+texture_hover = ExtResource("8_71axn")
+metadata/_edit_lock_ = true
+
+[node name="PausePanel" type="Panel" parent="PauseUI/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="PauseUI/Control/PausePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_top = 11.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "PAUSED"
+
+[node name="ResumeButton" type="Button" parent="PauseUI/Control/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -31.5
+offset_right = 31.0
+offset_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "resume"
+
+[node name="QuitButton" type="Button" parent="PauseUI/Control/PausePanel"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 73.0
+offset_right = 152.0
+offset_bottom = 103.0
+text = "Quit"
+
+[connection signal="timeout" from="Timer" to="." method="_on_spawn_slime"]
+[connection signal="pressed" from="PauseUI/Control/PauseButton" to="PauseUI/Control" method="pause"]
+[connection signal="pressed" from="PauseUI/Control/PausePanel/ResumeButton" to="PauseUI/Control" method="unpause"]
+[connection signal="pressed" from="PauseUI/Control/PausePanel/QuitButton" to="PauseUI/Control" method="quit_game"]

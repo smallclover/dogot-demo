@@ -1,7 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://gt1aqc231qff"]
+[gd_scene load_steps=25 format=3 uid="uid://gt1aqc231qff"]
 
 [ext_resource type="Script" uid="uid://bk1ye1q8m5g8v" path="res://Script/player.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://bvlnbc8tuufnd" path="res://AssetBundle/Sprites/Foxy.png" id="1_rpqav"]
+[ext_resource type="PackedScene" uid="uid://dm8w42ksymx2g" path="res://Scenes/Bullet.tscn" id="2_gntrk"]
+[ext_resource type="AudioStream" uid="uid://ccn46oj5emhk3" path="res://AssetBundle/Audio/Gun.mp3" id="4_dewec"]
+[ext_resource type="AudioStream" uid="uid://7xxnu4yqdrp8" path="res://AssetBundle/Audio/GameOver.mp3" id="5_5ixxa"]
+[ext_resource type="AudioStream" uid="uid://1ia81siigevb" path="res://AssetBundle/Audio/Running.mp3" id="6_nn08x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_glx4g"]
 atlas = ExtResource("1_rpqav")
@@ -136,16 +140,43 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_kyqiw"]
 radius = 13.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animator")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animator", "fire_sound", "game_over_sound", "running_sound", "restart_timer")]
 script = ExtResource("1_kyqiw")
 move_speed = 200.0
 animator = NodePath("AnimatedSprite2D")
+bullet_scene = ExtResource("2_gntrk")
+fire_sound = NodePath("FireSound")
+game_over_sound = NodePath("GameOverSound")
+running_sound = NodePath("RunningSound")
+restart_timer = NodePath("RestartTimer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nn08x")
 animation = &"game_over"
-frame_progress = 0.63953304
+frame = 4
+frame_progress = 0.4021138
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_kyqiw")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="FireSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dewec")
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5ixxa")
+volume_db = 20.0
+
+[node name="RunningSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_nn08x")
+volume_db = 5.0
+
+[node name="RestartTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_fire"]
+[connection signal="timeout" from="RestartTimer" to="." method="_on_reload_scene"]
