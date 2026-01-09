@@ -9,13 +9,16 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Esc"):
-		if not get_tree().paused:
-			get_tree().paused = true
-			pause_panel.visible = true
-		else:
-			get_tree().paused = false
-			pause_panel.visible = false
+	pass
+
+# 监听esc菜单
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.keycode == KEY_ESCAPE and event.pressed:
+			if not get_tree().paused:
+				pause()
+			else:
+				unpause()
 
 func pause():
 	get_tree().paused = true
