@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://wwl1khk3qdib"]
+
+[ext_resource type="Texture2D" uid="uid://cjmjctwel8lkq" path="res://background/background_layer_1.png" id="1_4aqey"]
+[ext_resource type="Texture2D" uid="uid://264b7rcmvlou" path="res://background/background_layer_2.png" id="2_xgxeb"]
+[ext_resource type="Texture2D" uid="uid://iftdy56c18qt" path="res://background/background_layer_3.png" id="3_ltlj5"]
+
+[node name="Background" type="Parallax2D"]
+metadata/_edit_lock_ = true
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.2, 1)
+repeat_size = Vector2(640, 0)
+
+[node name="BackgroundLayer1" type="Sprite2D" parent="Parallax2D"]
+scale = Vector2(2.003125, 2.033333)
+texture = ExtResource("1_4aqey")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 1)
+repeat_size = Vector2(640, 0)
+
+[node name="BackgroundLayer2" type="Sprite2D" parent="Parallax2D2"]
+scale = Vector2(2.0031252, 2.033333)
+texture = ExtResource("2_xgxeb")
+centered = false
+
+[node name="Parallax2D3" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 1)
+repeat_size = Vector2(640, 0)
+
+[node name="BackgroundLayer3" type="Sprite2D" parent="Parallax2D3"]
+scale = Vector2(2.0031252, 2.033333)
+texture = ExtResource("3_ltlj5")
+centered = false
