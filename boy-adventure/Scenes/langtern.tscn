@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://catbe44en8x6b"]
+
+[ext_resource type="Texture2D" uid="uid://bfse1asdhwodw" path="res://decorations/circle.png" id="1_8g3yx"]
+[ext_resource type="Script" uid="uid://cwssgoo4bv1ls" path="res://Script/langtern.gd" id="2_o0i17"]
+
+[node name="Langtern" type="PointLight2D"]
+scale = Vector2(0.07, 0.0825)
+color = Color(0.9123281, 0.8038959, 0, 1)
+energy = 1.5
+shadow_enabled = true
+texture = ExtResource("1_8g3yx")
+script = ExtResource("2_o0i17")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

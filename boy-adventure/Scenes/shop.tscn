@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://dt65d3pvkqnj8"]
+
+[ext_resource type="Texture2D" uid="uid://bb76u4yuaqi03" path="res://decorations/shop_anim.png" id="1_a0mxf"]
+[ext_resource type="PackedScene" uid="uid://catbe44en8x6b" path="res://Scenes/langtern.tscn" id="2_2shtd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2shtd"]
+atlas = ExtResource("1_a0mxf")
+region = Rect2(0, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_io27d"]
+atlas = ExtResource("1_a0mxf")
+region = Rect2(118, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdj0q"]
+atlas = ExtResource("1_a0mxf")
+region = Rect2(236, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6jq0"]
+atlas = ExtResource("1_a0mxf")
+region = Rect2(354, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ps1r"]
+atlas = ExtResource("1_a0mxf")
+region = Rect2(472, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymrm4"]
+atlas = ExtResource("1_a0mxf")
+region = Rect2(590, 0, 118, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s8dlv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2shtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_io27d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdj0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6jq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ps1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymrm4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyrku"]
+size = Vector2(79, 54)
+
+[node name="Shop" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s8dlv")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.32630333
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 36)
+shape = SubResource("RectangleShape2D_tyrku")
+
+[node name="Langtern" parent="." instance=ExtResource("2_2shtd")]
+position = Vector2(-48, 35.000004)
+
+[node name="Langtern2" parent="." instance=ExtResource("2_2shtd")]
+position = Vector2(47.999992, 34.000004)
