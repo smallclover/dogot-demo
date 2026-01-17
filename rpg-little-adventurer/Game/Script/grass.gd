@@ -23,7 +23,7 @@ func _ready() -> void:
 	skewTween.tween_property(sprite_2d, "skew", endSkew, 1.5).from(startSkew)
 	skewTween.tween_property(sprite_2d, "skew", startSkew, 1.5).from(endSkew)
 	skewTween.set_ease(Tween.EASE_IN_OUT)
-	
+	skewTween.set_speed_scale(randf_range(0.5, 1.5))
 	
 	# 后草
 	var startSkewBack = endSkew * 0.5
