@@ -1,9 +1,12 @@
-[gd_scene load_steps=67 format=3 uid="uid://dgm1e1bh4rt18"]
+[gd_scene load_steps=70 format=3 uid="uid://dgm1e1bh4rt18"]
 
 [ext_resource type="Texture2D" uid="uid://cxtigt3e5dn7h" path="res://Asset/Animations/Player_Idle.png" id="1_acddq"]
 [ext_resource type="Script" uid="uid://cqyxse686q40g" path="res://Game/Script/player.gd" id="1_rj7j4"]
 [ext_resource type="Texture2D" uid="uid://c37tnkrxc03rb" path="res://Asset/Animations/Shadow.png" id="2_dvuck"]
 [ext_resource type="Texture2D" uid="uid://38rqjhp3mv2r" path="res://Asset/Animations/Player_Run.png" id="3_b8828"]
+[ext_resource type="Script" uid="uid://dlvvr42ffqcfl" path="res://Game/Script/StateMachine/state_machine.gd" id="5_vvvbf"]
+[ext_resource type="Script" uid="uid://3s41w7e2cym6" path="res://Game/Script/StateMachine/PlayerStates/player_idle.gd" id="6_y4sok"]
+[ext_resource type="Script" uid="uid://8jfhvlt0xj3u" path="res://Game/Script/StateMachine/PlayerStates/player_run.gd" id="7_4ujyx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uj5ri"]
 radius = 4.0
@@ -380,7 +383,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_fh4q1")
 }],
 "loop": true,
-"name": &"Run_Down",
+"name": &"Move_Down",
 "speed": 12.0
 }, {
 "frames": [{
@@ -409,7 +412,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_17f46")
 }],
 "loop": true,
-"name": &"Run_Left",
+"name": &"Move_Left",
 "speed": 12.0
 }, {
 "frames": [{
@@ -438,7 +441,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_fxc2o")
 }],
 "loop": true,
-"name": &"Run_Right",
+"name": &"Move_Right",
 "speed": 12.0
 }, {
 "frames": [{
@@ -467,7 +470,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_5vvvp")
 }],
 "loop": true,
-"name": &"Run_Up",
+"name": &"Move_Up",
 "speed": 12.0
 }]
 
@@ -481,7 +484,7 @@ shape = SubResource("CircleShape2D_uj5ri")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6wcvd")
-animation = &"Run_Right"
+animation = &"Move_Right"
 offset = Vector2(0, -20)
 
 [node name="Sprite2D_Shadow" type="Sprite2D" parent="."]
@@ -493,3 +496,20 @@ offset = Vector2(0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("5_vvvbf")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("6_y4sok")
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource("7_4ujyx")
+
+[node name="DebugLabel" type="Label" parent="."]
+z_index = 100
+offset_left = 18.0
+offset_right = 58.0
+offset_bottom = 23.0
+scale = Vector2(0.3, 0.3)
+text = "state"

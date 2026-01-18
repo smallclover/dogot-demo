@@ -34,11 +34,11 @@ func _ready() -> void:
 	skewTweenBack.set_ease(Tween.EASE_IN_OUT)
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	CreateNewScaleTween(endScale,0.1)
 
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_body_exited(_body: Node2D) -> void:
 	CreateNewScaleTween(startScale,0.5)
 
 func CreateNewScaleTween(targetValue:Vector2, duration:float):
