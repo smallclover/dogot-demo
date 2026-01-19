@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bq5d8buemaipr"]
+[gd_scene load_steps=19 format=4 uid="uid://bq5d8buemaipr"]
 
 [ext_resource type="Texture2D" uid="uid://5h7aiwkmrmsr" path="res://Asset/Level/Background_Grass.png" id="1_wd0a0"]
 [ext_resource type="PackedScene" uid="uid://dgm1e1bh4rt18" path="res://Game/Scene/player.tscn" id="2_lv82p"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bbf6hfj00436y" path="res://Asset/Level/TreeAndGrass.png" id="4_rl4yr"]
 [ext_resource type="Script" uid="uid://tbacyc1byfsp" path="res://Game/Script/grass_generator_tileMapLayer.gd" id="5_g5pn2"]
 [ext_resource type="PackedScene" uid="uid://b61wju2i0gyd8" path="res://Game/Scene/enemy.tscn" id="6_g5pn2"]
+[ext_resource type="PackedScene" uid="uid://bqa1tgk3qmo3k" path="res://Game/Scene/tree.tscn" id="7_haytw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g6ejq"]
 texture = ExtResource("1_wd0a0")
@@ -527,14 +528,32 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_haytw")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_g5pn2"]
+vertices = PackedVector2Array(278, 662, 202, 662, 202, 554, 278, 554, 694, 490, 726, 490, 726, 534, 554, 522, 470, 534, 470, 662, 394, 662, 394, 598, 362, 598, 362, 522, 554, 458, 618, 458, 618, 426, 682, 426, 694, 394, 682, 394, 278, 438, 202, 438, 202, 426, 278, 426, 470, 406, 362, 406, 362, 394, 394, 394, 470, 362, 394, 362, 566, 342, 490, 342, 490, 298, 566, 298, 484.14063, 430, 530, 462, 345.8203, 462, 302, 452.14063, 347.85938, 430, 1006.1094, 12.75, 1017.8828, 1029.0234, 938, 522, 938, 310, 338, 477.64063, 302, 509.64063, 294.1797, 494, 292.14063, 462, 590, 356.14063, 590, 253.64063, 658, 349.64063, 658, 366, 601.8203, 366, 665.8203, 334, 842, 310, 842, 246, 714, 246, 714, 150, 16.960938, -12.7265625, 342, 150, 342, 246, 118, 246, 13.03125, 1031.9688, 118, 810, 182, 810, 182, 874, 242, 874, 242, 814, 206, 814, 206, 765.6406, 292.14063, 686, 366, 260.14063, 366, 174, 690, 174, 473.8203, 238, 699.8594, 270, 818, 270, 818, 324.14063, 718, 349.64063, 710.1797, 334, 827.8594, 334, 914, 334, 914, 462, 825.8203, 462, 750, 445.64063, 742.1797, 430, 818, 477.64063, 818, 548.1406, 786, 622, 750, 548.1406, 718, 430, 466, 253.64063, 466, 302, 377.8203, 302, 370, 317.64063, 370, 334, 345.8203, 334, 142, 270, 356.14063, 270, 494, 420.14063, 494, 366, 580.1406, 366, 537.8203, 398, 594, 381.64063, 594, 398, 347.85938, 622, 370, 622, 370, 676.1406, 302, 676.1406, 827.8594, 558, 850, 558, 850, 580.1406, 814, 622, 859.8594, 590, 882, 590, 882, 622, 814, 682, 786, 682, 562, 637.6406, 562, 718, 441.8203, 718, 484.14063, 686, 434, 733.6406, 434, 750, 409.8203, 750, 366, 733.6406, 402, 765.6406, 402, 782, 366, 782, 306, 733.6406, 306, 814, 270, 814, 330, 874, 330, 778, 342, 778, 342, 842, 426, 842, 426, 810, 458, 810, 458, 778, 586, 778, 586, 682, 906, 566, 874, 566, 874, 534, 842, 534, 842, 522, 906, 682, 690, 260.14063, 582.1797, 238, 338, 612.1406, 185.82031, 494, 187.85938, 462, 530, 413.64063, 338, 420.14063, 302, 381.64063, 338, 349.64063, 294.1797, 366, 740.1406, 558, 569.8203, 622, 494, 558, 494, 676.1406, 358.1797, 718, 379.85938, 686, 178, 452.14063, 178, 509.64063, 313.8203, 718, 185.82031, 366, 178, 381.64063, 142, 750, 178, 676.1406, 198.17969, 750, 187.85938, 686, 270, 874)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(11, 12, 13, 8), PackedInt32Array(8, 13, 7, 6), PackedInt32Array(4, 7, 14, 15), PackedInt32Array(15, 16, 17, 4), PackedInt32Array(18, 4, 17, 19), PackedInt32Array(20, 21, 22, 23), PackedInt32Array(24, 25, 26, 27), PackedInt32Array(28, 24, 27, 29), PackedInt32Array(30, 31, 32, 33), PackedInt32Array(34, 35, 36, 37, 38), PackedInt32Array(39, 40, 41, 42), PackedInt32Array(37, 36, 43, 44, 45, 46), PackedInt32Array(47, 48, 49, 50, 51), PackedInt32Array(52, 49, 48), PackedInt32Array(42, 53, 54, 39), PackedInt32Array(54, 55, 56, 39), PackedInt32Array(57, 39, 56, 58), PackedInt32Array(58, 59, 60, 57), PackedInt32Array(61, 57, 60, 62), PackedInt32Array(62, 63, 64, 61), PackedInt32Array(40, 61, 64, 65), PackedInt32Array(66, 67, 68, 69), PackedInt32Array(70, 71, 72, 73), PackedInt32Array(74, 75, 76, 77, 78), PackedInt32Array(79, 80, 81, 82, 83, 84, 77), PackedInt32Array(85, 86, 87, 88, 83), PackedInt32Array(84, 89, 77), PackedInt32Array(90, 91, 92), PackedInt32Array(93, 94, 95, 96, 97), PackedInt32Array(98, 99, 100, 101), PackedInt32Array(102, 103, 101, 100), PackedInt32Array(104, 105, 106, 107), PackedInt32Array(108, 109, 110, 111, 87), PackedInt32Array(112, 113, 114, 111), PackedInt32Array(110, 112, 111), PackedInt32Array(111, 115, 116, 87), PackedInt32Array(117, 118, 119, 120), PackedInt32Array(121, 122, 123, 124), PackedInt32Array(125, 126, 127, 124), PackedInt32Array(123, 125, 124), PackedInt32Array(128, 129, 130), PackedInt32Array(131, 132, 133, 134), PackedInt32Array(135, 136, 137, 40), PackedInt32Array(137, 138, 139, 40), PackedInt32Array(139, 140, 116, 40), PackedInt32Array(141, 142, 143, 41), PackedInt32Array(143, 144, 145, 41), PackedInt32Array(141, 41, 40, 146), PackedInt32Array(82, 85, 83), PackedInt32Array(76, 79, 77), PackedInt32Array(74, 78, 52, 48, 147), PackedInt32Array(72, 147, 48, 148), PackedInt32Array(149, 104, 107), PackedInt32Array(149, 107, 44, 43), PackedInt32Array(46, 45, 150, 151), PackedInt32Array(100, 47, 51, 102), PackedInt32Array(98, 101, 152), PackedInt32Array(98, 152, 35, 34), PackedInt32Array(153, 38, 37), PackedInt32Array(153, 37, 154, 155), PackedInt32Array(155, 154, 156, 95), PackedInt32Array(86, 108, 87), PackedInt32Array(157, 88, 87), PackedInt32Array(157, 87, 158, 159), PackedInt32Array(160, 159, 158, 117), PackedInt32Array(115, 146, 40), PackedInt32Array(131, 134, 135, 40), PackedInt32Array(116, 115, 40), PackedInt32Array(119, 121, 124, 161, 162), PackedInt32Array(163, 151, 150, 164), PackedInt32Array(69, 107, 106, 162, 161, 165), PackedInt32Array(70, 73, 90, 92, 97), PackedInt32Array(95, 156, 166, 96), PackedInt32Array(72, 148, 73), PackedInt32Array(97, 92, 93), PackedInt32Array(96, 166, 167), PackedInt32Array(168, 96, 167, 163), PackedInt32Array(168, 163, 164), PackedInt32Array(168, 164, 169), PackedInt32Array(170, 168, 169, 171), PackedInt32Array(170, 171, 69, 68), PackedInt32Array(65, 66, 69, 128, 130), PackedInt32Array(120, 160, 117), PackedInt32Array(162, 120, 119), PackedInt32Array(69, 165, 128), PackedInt32Array(65, 130, 172), PackedInt32Array(40, 65, 172), PackedInt32Array(40, 172, 131)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, -23, 3, 1042, 1028, 1039, 1016, 3)])
+source_geometry_mode = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_haytw"]
+size = Vector2(59, 1054)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xx61"]
+size = Vector2(942.5, 47.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q34ae"]
+size = Vector2(124, 200.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f77hp"]
+size = Vector2(97, 254.5)
+
 [node name="SceneRoot" type="Node2D"]
 
 [node name="TileMapLayer_Background" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAGABAAAAAAAAAAAAAGACAAAAAAAAAAAAAGADAAAAAAAAAAAAAGACAAEAAAAAAAAAAGABAAEAAAAAAAAAAGAAAAEAAAAAAAAAAGAAAAIAAAAAAAAAAGABAAIAAAAAAAAAAGACAAIAAAAAAAAAAGADAAIAAAAAAAAAAGADAAMAAAAAAAAAAGACAAMAAAAAAAAAAGABAAMAAAAAAAAAAGAAAAMAAAAAAAAAAGADAAEAAAAAAAAAAGA=")
 tile_set = SubResource("TileSet_wr7s0")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAKAAwAAAAIAAAAAAAKAA0AAAAIAAEAAAAKAA4AAAAIAAEAAAAKAA8AAAAIAAEAAAAKABAAAAAIAAEAAAAKABEAAAAIAAEAAAAKABIAAAAIAAMAAAALAAwAAAAKAAAAAAALAA0AAAAMAAEAAAALAA4AAAAMAAEAAAALAA8AAAANAAIAAAALABAAAAAMAAEAAAALABEAAAANAAEAAAALABIAAAAJAAMAAAAMAAwAAAAKAAAAAAAMAA0AAAAMAAIAAAAMAA4AAAANAAIAAAAMAA8AAAAMAAIAAAAMABAAAAAMAAAAAAAMABEAAAAMAAIAAAAMABIAAAAMAAMAAAANAAwAAAAKAAAAAAANAA0AAAAMAAEAAAANAA4AAAAMAAEAAAANAA8AAAAMAAAAAAANABAAAAAMAAIAAAANABEAAAAMAAIAAAAOAAwAAAAKAAAAAAAOAA0AAAAMAAAAAAAOAA4AAAAMAAEAAAAOAA8AAAAMAAAAAAAOABAAAAAMAAIAAAAOABEAAAAMAAAAAAAOABIAAAAJAAMAAAAPAAwAAAAKAAAAAAAPAA0AAAAMAAIAAAAPAA4AAAANAAIAAAAPAA8AAAAMAAAAAAAPABAAAAANAAEAAAAPABEAAAANAAIAAAAPABIAAAAJAAMAAAAQAAwAAAAKAAAAAAAQAA0AAAAMAAAAAAAQAA4AAAANAAIAAAAQAA8AAAANAAIAAAAQABAAAAAMAAIAAAAQABEAAAAMAAEAAAAQABIAAAAJAAMAAAARAAwAAAAKAAAAAAARAA0AAAAMAAAAAAARAA4AAAANAAIAAAARAA8AAAANAAIAAAARABAAAAAMAAIAAAARABEAAAANAAIAAAARABIAAAAJAAMAAAASAAwAAAAKAAAAAAASAA0AAAANAAIAAAASAA4AAAAMAAIAAAASAA8AAAAMAAIAAAASABAAAAAMAAIAAAASABEAAAANAAIAAAASABIAAAAJAAMAAAATAAwAAAAKAAAAAAATAA0AAAAMAAEAAAATAA4AAAANAAIAAAATAA8AAAANAAEAAAATABAAAAAMAAEAAAATABEAAAAMAAAAAAATABIAAAAMAAMAAAAUAAwAAAAKAAAAAAAUAA0AAAAMAAAAAAAUAA4AAAAMAAEAAAAUAA8AAAANAAIAAAAUABAAAAANAAEAAAAUABEAAAAMAAAAAAAVAAwAAAAKAAAAAAAVAA0AAAANAAIAAAAVAA4AAAANAAIAAAAVAA8AAAANAAEAAAAVABAAAAAMAAIAAAAVABEAAAAMAAAAAAAVABIAAAAJAAMAAAAWAAwAAAALAAAAAAAWAA0AAAALAAIAAAAWAA4AAAALAAIAAAAWAA8AAAALAAIAAAAWABAAAAALAAIAAAAWABEAAAALAAIAAAAWABIAAAALAAMAAAA=")
+[node name="TileMapLayer" type="TileMapLayer" parent="." groups=["navigation_polygon_source_geometry_group"]]
+tile_map_data = PackedByteArray("AAAKAAwAAAALAAIAAAAKAA0AAAAGAAEAAAAKAA4AAAAGAAIAAAAKAA8AAAALAAIAAAAKABAAAAALAAIAAAAKABEAAAALAAIAAAAKABIAAAALAAIAAAALAA0AAAAKAAAAAAAMAA0AAAAKAAAAAAANAA0AAAAKAAAAAAAOAA0AAAAKAAAAAAAPAA0AAAAFAAEAAAAPAA4AAAAJAAMAAAAPABEAAAAIAAAAAAAPABIAAAAIAAEAAAAQABEAAAAKAAAAAAAQABIAAAANAAEAAAARABEAAAAKAAAAAAARABIAAAANAAIAAAASABEAAAAKAAAAAAASABIAAAAMAAEAAAATABEAAAAKAAAAAAATABIAAAAMAAIAAAAUABEAAAAKAAAAAAAVABEAAAAKAAAAAAAVABIAAAAMAAAAAAAWAAwAAAAIAAEAAAAWAA0AAAAIAAMAAAAWABEAAAAKAAAAAAAWABIAAAANAAIAAAAKAAsAAAALAAIAAAAJABAAAAAIAAEAAAAJAA8AAAAFAAIAAAAJAA4AAAAFAAEAAAAJAA0AAAAIAAEAAAAJAAwAAAAIAAEAAAAJAAsAAAAFAAIAAAAIAA8AAAAJAAMAAAAIAA4AAAAKAAAAAAAIAAsAAAAJAAMAAAAHAA8AAAAJAAMAAAAHAA4AAAAKAAAAAAAHAAsAAAAJAAMAAAAGAA8AAAAJAAMAAAAGAA4AAAAKAAAAAAAGAAsAAAAJAAMAAAAZABEAAAAGAAEAAAAZABAAAAALAAIAAAAZAA8AAAALAAIAAAAZAA4AAAAGAAIAAAAZAA0AAAAMAAIAAAAZAAwAAAAMAAIAAAAZAAsAAAAMAAEAAAAZAAoAAAAGAAEAAAAZAAkAAAALAAIAAAAZAAgAAAALAAAAAAAYABEAAAAMAAEAAAAYABAAAAAMAAAAAAAYAA8AAAANAAEAAAAYAA4AAAAMAAAAAAAYAA0AAAANAAIAAAAYAAwAAAAMAAAAAAAYAAsAAAAMAAIAAAAYAAoAAAANAAIAAAAYAAkAAAANAAEAAAAYAAgAAAAKAAAAAAAXABEAAAAFAAEAAAAXABAAAAAIAAEAAAAXAA8AAAAIAAEAAAAXAA4AAAAIAAEAAAAXAA0AAAAFAAIAAAAXAAwAAAAMAAEAAAAXAAsAAAANAAIAAAAXAAoAAAANAAEAAAAXAAkAAAAMAAIAAAAXAAgAAAAKAAAAAAAWAAsAAAAIAAEAAAAWAAoAAAAFAAIAAAAWAAkAAAAMAAIAAAAWAAgAAAAKAAAAAAAVAAoAAAAJAAMAAAAVAAkAAAANAAEAAAAVAAgAAAAGAAEAAAAUAAkAAAAMAAIAAAAUAAgAAAAMAAAAAAATAAkAAAANAAIAAAATAAgAAAAMAAAAAAASAAkAAAAIAAEAAAASAAgAAAAIAAEAAAAOAAkAAAALAAMAAAAOAAgAAAALAAIAAAANAAkAAAAJAAMAAAANAAgAAAANAAIAAAAMAAkAAAAJAAMAAAAMAAgAAAAMAAIAAAALAAoAAAALAAMAAAALAAkAAAAGAAIAAAALAAgAAAAFAAEAAAAKAAoAAAAGAAIAAAAKAAkAAAAMAAEAAAAKAAgAAAAKAAAAAAAJABEAAAAIAAEAAAAJAAoAAAAMAAEAAAAJAAkAAAANAAIAAAAJAAgAAAAKAAAAAAAIAAoAAAANAAIAAAAIAAkAAAAMAAEAAAAIAAgAAAAKAAAAAAAHAAoAAAAMAAIAAAAHAAkAAAANAAEAAAAHAAgAAAAKAAAAAAAGAAoAAAANAAIAAAAGAAkAAAAMAAIAAAAGAAgAAAAKAAAAAAAFAA8AAAAGAAIAAAAFAA4AAAAGAAEAAAAFAA0AAAALAAIAAAAFAAwAAAALAAIAAAAFAAsAAAAGAAIAAAAFAAoAAAANAAEAAAAFAAkAAAANAAIAAAAFAAgAAAAKAAAAAAAEABEAAAAIAAEAAAAEABAAAAAIAAEAAAAEAA8AAAAIAAEAAAAEAA4AAAAIAAEAAAAEAA0AAAAIAAEAAAAEAAwAAAAIAAEAAAAEAAsAAAAIAAEAAAAEAAoAAAAIAAEAAAAEAAkAAAAIAAEAAAAEAAgAAAAIAAAAAAAJABUAAAAFAAEAAAAJABQAAAAIAAEAAAAJABMAAAAIAAEAAAAJABIAAAAIAAEAAAAIABUAAAAKAAAAAAAHABUAAAAKAAAAAAAGABUAAAAKAAAAAAAFABUAAAAGAAEAAAAHABgAAAANAAEAAAAHABcAAAAMAAIAAAAHABYAAAANAAIAAAAGABgAAAAIAAEAAAAGABcAAAAFAAIAAAAGABYAAAAMAAEAAAAJABgAAAALAAIAAAAJABcAAAALAAIAAAAJABYAAAAGAAIAAAAIABgAAAANAAIAAAAIABcAAAAMAAIAAAAIABYAAAANAAEAAAAFABcAAAAJAAMAAAAFABYAAAAMAAEAAAAEABcAAAAIAAMAAAAEABYAAAAIAAEAAAAEABUAAAAIAAEAAAAEABQAAAAIAAEAAAAEABMAAAAIAAEAAAAEABIAAAAIAAEAAAAaABMAAAAJAAMAAAAaABIAAAAGAAEAAAAaABEAAAALAAAAAAAZABIAAAANAAIAAAAYABIAAAAMAAEAAAAXABMAAAAJAAMAAAAXABIAAAANAAEAAAAWABMAAAAJAAMAAAAVABMAAAAJAAMAAAAUABMAAAAJAAMAAAAUABIAAAANAAEAAAATABMAAAAJAAMAAAASABMAAAAJAAMAAAAcAA4AAAALAAMAAAAcAA0AAAALAAIAAAAcAAwAAAALAAIAAAAcAAsAAAALAAIAAAAcAAoAAAALAAAAAAAbAA4AAAAJAAMAAAAbAA0AAAANAAIAAAAbAAwAAAANAAIAAAAbAAsAAAAMAAAAAAAbAAoAAAAKAAAAAAAaAA4AAAAJAAMAAAAaAA0AAAAMAAAAAAAaAAwAAAANAAEAAAAaAAsAAAAMAAAAAAAaAAoAAAAKAAAAAAAVAAcAAAALAAIAAAAVAAYAAAALAAIAAAAVAAUAAAALAAAAAAAUAAcAAAAMAAAAAAAUAAYAAAAMAAIAAAAUAAUAAAAKAAAAAAATAAcAAAANAAEAAAATAAYAAAAMAAEAAAATAAUAAAAKAAAAAAASAAcAAAAFAAIAAAASAAYAAAANAAEAAAASAAUAAAAKAAAAAAARAAcAAAAJAAMAAAARAAYAAAAMAAAAAAARAAUAAAAKAAAAAAAQAAcAAAAJAAMAAAAQAAYAAAANAAEAAAAQAAUAAAAKAAAAAAAPAAcAAAAJAAMAAAAPAAYAAAANAAIAAAAPAAUAAAAKAAAAAAAOAAcAAAAGAAIAAAAOAAYAAAANAAEAAAAOAAUAAAAKAAAAAAANAAcAAAAMAAAAAAANAAYAAAAMAAEAAAANAAUAAAAKAAAAAAAMAAcAAAAMAAAAAAAMAAYAAAAMAAEAAAAMAAUAAAAKAAAAAAALAAcAAAAIAAEAAAALAAYAAAAIAAEAAAALAAUAAAAIAAAAAAAbABMAAAALAAMAAAAbABIAAAALAAAAAAAYABMAAAAMAAMAAAAOAA4AAAAJAAMAAAANAA4AAAAJAAMAAAAMAA4AAAAJAAMAAAALAA4AAAAJAAMAAAASAAoAAAAIAAEAAAATAAoAAAANAAIAAAATAAsAAAAJAAMAAAASAAsAAAAJAAEAAAAUAAsAAAALAAMAAAAUAAoAAAAGAAIAAAASAAwAAAALAAMAAAARAAwAAAAJAAMAAAARAAsAAAAKAAAAAAAQAAwAAAAGAAIAAAAQAAsAAAAKAAAAAAAPAAwAAAAIAAEAAAAPAAsAAAAIAAAAAAAQAA4AAAALAAMAAAAQAA0AAAALAAIAAAAKABMAAAAGAAEAAAALABMAAAALAAAAAAALABQAAAALAAIAAAAPABQAAAAIAAEAAAAPABUAAAAFAAEAAAAQABUAAAANAAEAAAAQABQAAAANAAEAAAARABUAAAALAAIAAAARABYAAAALAAMAAAARABQAAAALAAIAAAARABMAAAAGAAIAAAAQABYAAAAJAAMAAAAQABMAAAANAAEAAAAPABYAAAAJAAMAAAAPABMAAAAIAAEAAAAOABYAAAAJAAMAAAAOABUAAAAKAAAAAAANABYAAAAGAAIAAAANABUAAAAKAAAAAAAMABYAAAAMAAEAAAAMABUAAAAKAAAAAAALABYAAAAFAAIAAAALABUAAAAGAAEAAAAKABYAAAAJAAMAAAAKABUAAAAMAAAAAAAKABQAAAANAAEAAAAFABQAAAALAAIAAAAFABMAAAALAAIAAAAFABIAAAALAAIAAAAFABEAAAALAAIAAAAFABAAAAALAAIAAAALABcAAAAIAAEAAAALABgAAAAIAAMAAAAMABgAAAALAAMAAAAMABcAAAAGAAIAAAANABcAAAALAAMAAAAJABkAAAALAAMAAAAGABkAAAAIAAMAAAAHABkAAAAMAAMAAAA=")
 tile_set = SubResource("TileSet_rl4yr")
 
 [node name="Level" type="Node2D" parent="."]
@@ -544,10 +563,581 @@ y_sort_enabled = true
 position = Vector2(500, 700)
 
 [node name="TileMapLayer_Grass" type="TileMapLayer" parent="Level"]
-visible = false
-tile_map_data = PackedByteArray("AAAKABUAAAACAAMAAAAKABYAAAACAAMAAAAKABcAAAACAAMAAAAKABgAAAACAAMAAAALABUAAAACAAMAAAALABYAAAACAAMAAAALABcAAAACAAMAAAALABgAAAACAAMAAAAMABUAAAACAAMAAAAMABYAAAACAAMAAAAMABcAAAACAAMAAAAMABgAAAACAAMAAAANABUAAAACAAMAAAANABYAAAACAAMAAAANABcAAAACAAMAAAANABgAAAACAAMAAAAKABQAAAACAAMAAAALABQAAAACAAMAAAAMABQAAAACAAMAAAANABQAAAACAAMAAAAOABYAAAACAAMAAAAOABcAAAACAAMAAAAOABgAAAACAAMAAAAPABYAAAACAAMAAAAPABcAAAACAAMAAAAPABgAAAACAAMAAAAQABYAAAACAAMAAAAQABcAAAACAAMAAAAQABgAAAACAAMAAAARABYAAAACAAMAAAARABcAAAACAAMAAAARABgAAAACAAMAAAASABQAAAACAAMAAAASABUAAAACAAMAAAASABYAAAACAAMAAAASABcAAAACAAMAAAASABgAAAACAAMAAAATABQAAAACAAMAAAATABUAAAACAAMAAAATABYAAAACAAMAAAATABcAAAACAAMAAAATABgAAAACAAMAAAAUABQAAAACAAMAAAAUABUAAAACAAMAAAAUABYAAAACAAMAAAAUABcAAAACAAMAAAAUABgAAAACAAMAAAAVABQAAAACAAMAAAAVABUAAAACAAMAAAAVABYAAAACAAMAAAAVABcAAAACAAMAAAAVABgAAAACAAMAAAAWABQAAAACAAMAAAAWABUAAAACAAMAAAAWABYAAAACAAMAAAAWABcAAAACAAMAAAAWABgAAAACAAMAAAA=")
+tile_map_data = PackedByteArray("AAASABUAAAACAAMAAAASABYAAAACAAMAAAASABcAAAACAAMAAAASABgAAAACAAMAAAATABUAAAACAAMAAAATABYAAAACAAMAAAATABcAAAACAAMAAAATABgAAAACAAMAAAAUABUAAAACAAMAAAAUABYAAAACAAMAAAAUABcAAAACAAMAAAAUABgAAAACAAMAAAAVABUAAAACAAMAAAAVABYAAAACAAMAAAAVABcAAAACAAMAAAAVABgAAAACAAMAAAAWABUAAAACAAMAAAAWABYAAAACAAMAAAAWABcAAAACAAMAAAAWABgAAAACAAMAAAAXABUAAAACAAMAAAAXABYAAAACAAMAAAAXABcAAAACAAMAAAAXABgAAAACAAMAAAAYABUAAAACAAMAAAAYABYAAAACAAMAAAAYABcAAAACAAMAAAAYABgAAAACAAMAAAAZABUAAAACAAMAAAAZABYAAAACAAMAAAAZABcAAAACAAMAAAAZABgAAAACAAMAAAAaABUAAAACAAMAAAAaABYAAAACAAMAAAAaABcAAAACAAMAAAAaABgAAAACAAMAAAAbABUAAAACAAMAAAAbABYAAAACAAMAAAAbABcAAAACAAMAAAAbABgAAAACAAMAAAAKABoAAAACAAMAAAAKABsAAAACAAMAAAAKABwAAAACAAMAAAALABoAAAACAAMAAAALABsAAAACAAMAAAALABwAAAACAAMAAAAMABoAAAACAAMAAAAMABsAAAACAAMAAAAMABwAAAACAAMAAAANABoAAAACAAMAAAANABsAAAACAAMAAAANABwAAAACAAMAAAAOABoAAAACAAMAAAAOABsAAAACAAMAAAAOABwAAAACAAMAAAADABkAAAACAAMAAAADABoAAAACAAMAAAADABsAAAACAAMAAAADABwAAAACAAMAAAAEABkAAAACAAMAAAAEABoAAAACAAMAAAAEABsAAAACAAMAAAAEABwAAAACAAMAAAAFABoAAAACAAMAAAAFABsAAAACAAMAAAAFABwAAAACAAMAAAAHAA0AAAACAAMAAAAMAAwAAAACAAMAAAAPAAoAAAACAAMAAAAHABMAAAACAAMAAAAMABAAAAACAAMAAAANABEAAAACAAMAAAAPABAAAAACAAMAAAANABIAAAACAAMAAAAMABEAAAACAAMAAAAQABAAAAACAAMAAAATAA4AAAACAAMAAAAUAA8AAAACAAMAAAATAA8AAAACAAMAAAATABAAAAACAAMAAAAUABAAAAACAAMAAAAcABAAAAACAAMAAAAdABAAAAACAAMAAAAdABEAAAACAAMAAAAcABIAAAACAAMAAAAcABEAAAACAAMAAAAdABIAAAACAAMAAAAdABYAAAACAAMAAAAdABcAAAACAAMAAAAdABgAAAACAAMAAAAdABkAAAACAAMAAAAdABoAAAACAAMAAAAdABsAAAACAAMAAAARABoAAAACAAMAAAARABsAAAACAAMAAAARABwAAAACAAMAAAASABoAAAACAAMAAAASABsAAAACAAMAAAASABwAAAACAAMAAAATABoAAAACAAMAAAATABsAAAACAAMAAAATABwAAAACAAMAAAAUABoAAAACAAMAAAAUABsAAAACAAMAAAAUABwAAAACAAMAAAAVABoAAAACAAMAAAAVABsAAAACAAMAAAAVABwAAAACAAMAAAAaABoAAAACAAMAAAAaABsAAAACAAMAAAAaABwAAAACAAMAAAAbABoAAAACAAMAAAAbABsAAAACAAMAAAAbABwAAAACAAMAAAAcABoAAAACAAMAAAAcABsAAAACAAMAAAAcABwAAAACAAMAAAAXABkAAAACAAMAAAAXABoAAAACAAMAAAAXABsAAAACAAMAAAAYABkAAAACAAMAAAAYABoAAAACAAMAAAAYABsAAAACAAMAAAAPABgAAAACAAMAAAAPABkAAAACAAMAAAAQABgAAAACAAMAAAAQABkAAAACAAMAAAAKABkAAAACAAMAAAAYAAQAAAACAAMAAAAYAAUAAAACAAMAAAAYAAYAAAACAAMAAAAZAAQAAAACAAMAAAAZAAUAAAACAAMAAAAZAAYAAAACAAMAAAAaAAQAAAACAAMAAAAaAAUAAAACAAMAAAAaAAYAAAACAAMAAAAbAAQAAAACAAMAAAAbAAUAAAACAAMAAAAbAAYAAAACAAMAAAAcAAQAAAACAAMAAAAcAAUAAAACAAMAAAAcAAYAAAACAAMAAAAcAAcAAAACAAMAAAAdAAQAAAACAAMAAAAdAAUAAAACAAMAAAAdAAYAAAACAAMAAAAdAAcAAAACAAMAAAARAAEAAAACAAMAAAARAAIAAAACAAMAAAARAAMAAAACAAMAAAASAAEAAAACAAMAAAASAAIAAAACAAMAAAASAAMAAAACAAMAAAATAAEAAAACAAMAAAATAAIAAAACAAMAAAATAAMAAAACAAMAAAAUAAEAAAACAAMAAAAUAAIAAAACAAMAAAAUAAMAAAACAAMAAAAVAAEAAAACAAMAAAAVAAIAAAACAAMAAAAVAAMAAAACAAMAAAAWAAEAAAACAAMAAAAWAAIAAAACAAMAAAAWAAMAAAACAAMAAAAXAAEAAAACAAMAAAAXAAIAAAACAAMAAAAXAAMAAAACAAMAAAAXAAQAAAACAAMAAAAJAAEAAAACAAMAAAAJAAIAAAACAAMAAAAJAAMAAAACAAMAAAAKAAEAAAACAAMAAAAKAAIAAAACAAMAAAAKAAMAAAACAAMAAAALAAEAAAACAAMAAAALAAIAAAACAAMAAAALAAMAAAACAAMAAAAMAAEAAAACAAMAAAAMAAIAAAACAAMAAAAMAAMAAAACAAMAAAANAAEAAAACAAMAAAANAAIAAAACAAMAAAANAAMAAAACAAMAAAAOAAEAAAACAAMAAAAOAAIAAAACAAMAAAAOAAMAAAACAAMAAAAEAAIAAAACAAMAAAAEAAMAAAACAAMAAAAEAAQAAAACAAMAAAAEAAUAAAACAAMAAAAFAAIAAAACAAMAAAAFAAMAAAACAAMAAAAFAAQAAAACAAMAAAAFAAUAAAACAAMAAAAGAAIAAAACAAMAAAAGAAMAAAACAAMAAAAGAAQAAAACAAMAAAAGAAUAAAACAAMAAAAHAAIAAAACAAMAAAAHAAMAAAACAAMAAAAHAAQAAAACAAMAAAAHAAUAAAACAAMAAAAIAAIAAAACAAMAAAAIAAMAAAACAAMAAAAIAAQAAAACAAMAAAAIAAUAAAACAAMAAAAHAAYAAAACAAMAAAAIAAYAAAACAAMAAAAJAAYAAAACAAMAAAABAAMAAAACAAMAAAABAAQAAAACAAMAAAABAAUAAAACAAMAAAABAAYAAAACAAMAAAABAAcAAAACAAMAAAACAAMAAAACAAMAAAACAAQAAAACAAMAAAACAAUAAAACAAMAAAACAAYAAAACAAMAAAACAAcAAAACAAMAAAADAAMAAAACAAMAAAADAAQAAAACAAMAAAADAAUAAAACAAMAAAADAAYAAAACAAMAAAADAAcAAAACAAMAAAABAAoAAAACAAMAAAABAAsAAAACAAMAAAABAAwAAAACAAMAAAABAA0AAAACAAMAAAACAAoAAAACAAMAAAACAAsAAAACAAMAAAACAAwAAAACAAMAAAACAA0AAAACAAMAAAANABMAAAACAAMAAAANABQAAAACAAMAAAAGABsAAAACAAMAAAAGABwAAAACAAMAAAAHABsAAAACAAMAAAAHABwAAAACAAMAAAAIABsAAAACAAMAAAAIABwAAAACAAMAAAAJABsAAAACAAMAAAAJABwAAAACAAMAAAAAAA0AAAACAAMAAAAAAA4AAAACAAMAAAAAAA8AAAACAAMAAAAAABAAAAACAAMAAAAAABEAAAACAAMAAAAAABIAAAACAAMAAAAAABMAAAACAAMAAAABAA4AAAACAAMAAAABAA8AAAACAAMAAAABABAAAAACAAMAAAABABEAAAACAAMAAAABABIAAAACAAMAAAABABMAAAACAAMAAAACAA4AAAACAAMAAAACAA8AAAACAAMAAAACABAAAAACAAMAAAACABEAAAACAAMAAAACABIAAAACAAMAAAACABMAAAACAAMAAAABABQAAAACAAMAAAABABUAAAACAAMAAAABABYAAAACAAMAAAABABcAAAACAAMAAAABABgAAAACAAMAAAABABkAAAACAAMAAAACABQAAAACAAMAAAACABUAAAACAAMAAAACABYAAAACAAMAAAACABcAAAACAAMAAAACABgAAAACAAMAAAACABkAAAACAAMAAAAFAP//AAACAAMAAAAFAAAAAAACAAMAAAAFAAEAAAACAAMAAAAGAP//AAACAAMAAAAGAAAAAAACAAMAAAAGAAEAAAACAAMAAAAHAP//AAACAAMAAAAHAAAAAAACAAMAAAAHAAEAAAACAAMAAAAIAP//AAACAAMAAAAIAAAAAAACAAMAAAAIAAEAAAACAAMAAAAJAP//AAACAAMAAAAJAAAAAAACAAMAAAAKAP//AAACAAMAAAAKAAAAAAACAAMAAAALAP//AAACAAMAAAALAAAAAAACAAMAAAAMAP//AAACAAMAAAAMAAAAAAACAAMAAAANAP//AAACAAMAAAANAAAAAAACAAMAAAAOAP//AAACAAMAAAAOAAAAAAACAAMAAAAPAP//AAACAAMAAAAPAAAAAAACAAMAAAAPAAEAAAACAAMAAAAPAAIAAAACAAMAAAAQAP//AAACAAMAAAAQAAAAAAACAAMAAAAQAAEAAAACAAMAAAAQAAIAAAACAAMAAAARAP//AAACAAMAAAARAAAAAAACAAMAAAASAP//AAACAAMAAAASAAAAAAACAAMAAAATAP//AAACAAMAAAATAAAAAAACAAMAAAAUAP//AAACAAMAAAAUAAAAAAACAAMAAAAVAP//AAACAAMAAAAVAAAAAAACAAMAAAAWAP//AAACAAMAAAAWAAAAAAACAAMAAAAXAP//AAACAAMAAAAXAAAAAAACAAMAAAAYAP//AAACAAMAAAAYAAAAAAACAAMAAAAYAAEAAAACAAMAAAAYAAIAAAACAAMAAAAZAP//AAACAAMAAAAZAAAAAAACAAMAAAAZAAEAAAACAAMAAAAZAAIAAAACAAMAAAAaAP//AAACAAMAAAAaAAAAAAACAAMAAAAaAAEAAAACAAMAAAAaAAIAAAACAAMAAAAbAP//AAACAAMAAAAbAAAAAAACAAMAAAAbAAEAAAACAAMAAAAbAAIAAAACAAMAAAAbAAcAAAACAAMAAAAbAAgAAAACAAMAAAAbAAkAAAACAAMAAAAcAAgAAAACAAMAAAAcAAkAAAACAAMAAAAdAAgAAAACAAMAAAAdAAkAAAACAAMAAAAJAAQAAAACAAMAAAAJAAUAAAACAAMAAAAEAAYAAAACAAMAAAAFAAYAAAACAAMAAAAPAAMAAAACAAMAAAAaAAMAAAACAAMAAAAbAAMAAAACAAMAAAABABwAAAACAAMAAAABAB0AAAACAAMAAAABAB4AAAACAAMAAAABAB8AAAACAAMAAAACABwAAAACAAMAAAACAB0AAAACAAMAAAACAB4AAAACAAMAAAACAB8AAAACAAMAAAADAB0AAAACAAMAAAADAB4AAAACAAMAAAADAB8AAAACAAMAAAAEAB0AAAACAAMAAAAEAB4AAAACAAMAAAAEAB8AAAACAAMAAAAFAB0AAAACAAMAAAAFAB4AAAACAAMAAAAFAB8AAAACAAMAAAAGAB0AAAACAAMAAAAGAB4AAAACAAMAAAAGAB8AAAACAAMAAAAHAB0AAAACAAMAAAAHAB4AAAACAAMAAAAHAB8AAAACAAMAAAAIAB0AAAACAAMAAAAIAB4AAAACAAMAAAAIAB8AAAACAAMAAAAJAB0AAAACAAMAAAAJAB4AAAACAAMAAAAJAB8AAAACAAMAAAAKAB0AAAACAAMAAAAKAB4AAAACAAMAAAAKAB8AAAACAAMAAAALAB0AAAACAAMAAAALAB4AAAACAAMAAAALAB8AAAACAAMAAAAVAB4AAAACAAMAAAAVAB8AAAACAAMAAAAWAB4AAAACAAMAAAAWAB8AAAACAAMAAAAXAB4AAAACAAMAAAAXAB8AAAACAAMAAAAYAB4AAAACAAMAAAAYAB8AAAACAAMAAAAZAB4AAAACAAMAAAAZAB8AAAACAAMAAAAaAB4AAAACAAMAAAAaAB8AAAACAAMAAAAbAB4AAAACAAMAAAAbAB8AAAACAAMAAAAcAB4AAAACAAMAAAAcAB8AAAACAAMAAAAdAB4AAAACAAMAAAAdAB8AAAACAAMAAAAPAB4AAAACAAMAAAAPAB8AAAACAAMAAAAQAB4AAAACAAMAAAAQAB8AAAACAAMAAAARAB4AAAACAAMAAAARAB8AAAACAAMAAAASAB4AAAACAAMAAAASAB8AAAACAAMAAAA=")
 tile_set = SubResource("TileSet_3xx61")
 script = ExtResource("5_g5pn2")
 
-[node name="Enemy" parent="Level" instance=ExtResource("6_g5pn2")]
-position = Vector2(612, 786)
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Level"]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_g5pn2")
+
+[node name="EnemyGroup" type="Node2D" parent="Level"]
+y_sort_enabled = true
+
+[node name="Enemy" parent="Level/EnemyGroup" instance=ExtResource("6_g5pn2")]
+position = Vector2(664, 605)
+
+[node name="Enemy2" parent="Level/EnemyGroup" instance=ExtResource("6_g5pn2")]
+position = Vector2(814, 898)
+
+[node name="Enemy3" parent="Level/EnemyGroup" instance=ExtResource("6_g5pn2")]
+position = Vector2(186, 344)
+
+[node name="TreeGroup" type="Node2D" parent="Level"]
+y_sort_enabled = true
+position = Vector2(2, 0)
+
+[node name="Tree" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(20, 1022)
+
+[node name="Tree119" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(829, 819)
+
+[node name="Tree120" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(695, 841)
+
+[node name="Tree121" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(36, 571)
+
+[node name="Tree122" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(447, 1024)
+
+[node name="Tree117" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(471, 802)
+
+[node name="Tree105" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(498, 808)
+
+[node name="Tree106" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(466, 846)
+
+[node name="Tree107" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(510, 854)
+
+[node name="Tree108" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(546, 871)
+
+[node name="Tree109" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(494, 894)
+
+[node name="Tree110" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(460, 910)
+
+[node name="Tree111" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(485, 934)
+
+[node name="Tree112" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(485, 934)
+
+[node name="Tree113" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(526, 919)
+
+[node name="Tree114" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(512, 996)
+
+[node name="Tree115" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(526, 951)
+
+[node name="Tree116" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(468, 976)
+
+[node name="Tree21" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(24, 643)
+
+[node name="Tree22" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(57, 667)
+
+[node name="Tree23" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(83, 614)
+
+[node name="Tree24" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(112, 582)
+
+[node name="Tree31" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(105, 255)
+
+[node name="Tree32" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(166, 237)
+
+[node name="Tree123" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(249, 236)
+
+[node name="Tree124" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(302, 171)
+
+[node name="Tree125" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(354, 156)
+
+[node name="Tree126" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(755, 229)
+
+[node name="Tree127" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(727, 248)
+
+[node name="Tree128" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(676, 156)
+
+[node name="Tree129" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(858, 306)
+
+[node name="Tree130" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(494, 150)
+
+[node name="Tree131" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(415, 150)
+
+[node name="Tree132" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(422, 65)
+
+[node name="Tree133" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(318, 243)
+
+[node name="Tree134" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(233, 255)
+
+[node name="Tree135" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(119, 107)
+
+[node name="Tree136" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(36, 332)
+
+[node name="Tree137" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(998, 575)
+
+[node name="Tree138" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(1006, 461)
+
+[node name="Tree139" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(943, 327)
+
+[node name="Tree140" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(955, 196)
+
+[node name="Tree141" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(1000, 160)
+
+[node name="Tree142" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(789, 43)
+
+[node name="Tree143" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(687, 37)
+
+[node name="Tree144" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(589, 21)
+
+[node name="Tree145" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(582, 73)
+
+[node name="Tree146" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(494, 37)
+
+[node name="Tree147" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(392, 44)
+
+[node name="Tree148" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(350, 34)
+
+[node name="Tree149" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(346, 34)
+
+[node name="Tree150" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(225, 28)
+
+[node name="Tree151" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(180, 46)
+
+[node name="Tree152" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(180, 46)
+
+[node name="Tree153" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(99, 103)
+
+[node name="Tree154" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(30, 160)
+
+[node name="Tree155" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(20, 398)
+
+[node name="Tree156" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(209, 158)
+
+[node name="Tree157" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(841, 88)
+
+[node name="Tree158" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(841, 88)
+
+[node name="Tree33" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(92, 310)
+
+[node name="Tree34" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(76, 389)
+
+[node name="Tree35" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(370, 116)
+
+[node name="Tree36" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(283, 134)
+
+[node name="Tree37" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(203, 104)
+
+[node name="Tree38" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(298, 65)
+
+[node name="Tree39" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(840, 248)
+
+[node name="Tree40" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(968, 388)
+
+[node name="Tree41" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(959, 472)
+
+[node name="Tree42" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(992, 529)
+
+[node name="Tree43" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(886, 546)
+
+[node name="Tree44" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(959, 595)
+
+[node name="Tree45" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(979, 663)
+
+[node name="Tree46" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(991, 800)
+
+[node name="Tree50" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(920, 280)
+
+[node name="Tree51" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(995, 267)
+
+[node name="Tree52" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(805, 156)
+
+[node name="Tree53" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(744, 118)
+
+[node name="Tree54" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(768, 188)
+
+[node name="Tree55" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(877, 140)
+
+[node name="Tree56" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(636, 90)
+
+[node name="Tree57" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(528, 95)
+
+[node name="Tree58" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(622, 126)
+
+[node name="Tree59" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(483, 96)
+
+[node name="Tree60" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(449, 126)
+
+[node name="Tree61" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(566, 140)
+
+[node name="Tree62" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(566, 140)
+
+[node name="Tree63" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(158, 128)
+
+[node name="Tree64" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(75, 173)
+
+[node name="Tree65" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(37, 237)
+
+[node name="Tree66" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(37, 237)
+
+[node name="Tree47" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(1006, 710)
+
+[node name="Tree159" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(999, 606)
+
+[node name="Tree160" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(944, 405)
+
+[node name="Tree161" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(990, 375)
+
+[node name="Tree162" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(995, 313)
+
+[node name="Tree163" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(951, 260)
+
+[node name="Tree164" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(999, 204)
+
+[node name="Tree165" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(977, 426)
+
+[node name="Tree166" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(885, 198)
+
+[node name="Tree167" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(974, 821)
+
+[node name="Tree168" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(978, 689)
+
+[node name="Tree169" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(1008, 798)
+
+[node name="Tree170" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(911, 1039)
+
+[node name="Tree171" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(994, 973)
+
+[node name="Tree172" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(706, 1042)
+
+[node name="Tree173" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(585, 1044)
+
+[node name="Tree174" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(649, 1010)
+
+[node name="Tree175" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(649, 1010)
+
+[node name="Tree48" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(974, 739)
+
+[node name="Tree49" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(954, 526)
+
+[node name="Tree25" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(233, 599)
+
+[node name="Tree26" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(443, 545)
+
+[node name="Tree27" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(696, 526)
+
+[node name="Tree28" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(654, 471)
+
+[node name="Tree29" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(534, 327)
+
+[node name="Tree30" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(425, 390)
+
+[node name="Tree12" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(24, 69)
+
+[node name="Tree13" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(62, 52)
+
+[node name="Tree14" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(43, 109)
+
+[node name="Tree15" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(120, 34)
+
+[node name="Tree16" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(975, 29)
+
+[node name="Tree17" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(923, 21)
+
+[node name="Tree18" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(979, 93)
+
+[node name="Tree19" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(931, 116)
+
+[node name="Tree20" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(882, 59)
+
+[node name="Tree2" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(37, 975)
+
+[node name="Tree3" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(20, 942)
+
+[node name="Tree67" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(35, 849)
+
+[node name="Tree68" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(25, 794)
+
+[node name="Tree69" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(54, 890)
+
+[node name="Tree70" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(57, 816)
+
+[node name="Tree71" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(56, 723)
+
+[node name="Tree72" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(76, 476)
+
+[node name="Tree73" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(20, 521)
+
+[node name="Tree74" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(88, 532)
+
+[node name="Tree4" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(21, 730)
+
+[node name="Tree7" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(995, 1022)
+
+[node name="Tree8" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(944, 1023)
+
+[node name="Tree9" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(972, 962)
+
+[node name="Tree10" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(927, 955)
+
+[node name="Tree11" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(1003, 929)
+
+[node name="Tree5" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(65, 1020)
+
+[node name="Tree6" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(107, 1024)
+
+[node name="Tree75" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(143, 1013)
+
+[node name="Tree76" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(212, 1031)
+
+[node name="Tree77" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(242, 1015)
+
+[node name="Tree78" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(310, 1022)
+
+[node name="Tree79" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(181, 1001)
+
+[node name="Tree80" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(279, 1020)
+
+[node name="Tree81" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(348, 1019)
+
+[node name="Tree82" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(391, 1038)
+
+[node name="Tree83" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(380, 1001)
+
+[node name="Tree84" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(425, 1015)
+
+[node name="Tree85" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(474, 1016)
+
+[node name="Tree86" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(514, 1017)
+
+[node name="Tree87" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(566, 1013)
+
+[node name="Tree88" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(609, 1003)
+
+[node name="Tree89" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(616, 1029)
+
+[node name="Tree90" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(656, 1015)
+
+[node name="Tree91" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(658, 1027)
+
+[node name="Tree92" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(716, 1001)
+
+[node name="Tree93" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(995, 867)
+
+[node name="Tree94" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(974, 887)
+
+[node name="Tree95" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(893, 1000)
+
+[node name="Tree96" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(865, 1022)
+
+[node name="Tree97" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(834, 996)
+
+[node name="Tree98" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(794, 1028)
+
+[node name="Tree99" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(777, 991)
+
+[node name="Tree100" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(744, 1031)
+
+[node name="Tree101" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(696, 1000)
+
+[node name="Tree102" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(594, 1003)
+
+[node name="Tree103" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(554, 1003)
+
+[node name="Tree104" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(510, 798)
+
+[node name="Tree118" parent="Level/TreeGroup" instance=ExtResource("7_haytw")]
+position = Vector2(545, 788)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/StaticBody2D"]
+position = Vector2(31, 507)
+shape = SubResource("RectangleShape2D_haytw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level/StaticBody2D"]
+position = Vector2(991, 502)
+shape = SubResource("RectangleShape2D_haytw")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Level/StaticBody2D"]
+position = Vector2(507.75, 7.5)
+shape = SubResource("RectangleShape2D_3xx61")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Level/StaticBody2D"]
+position = Vector2(514, 1013)
+shape = SubResource("RectangleShape2D_3xx61")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Level/StaticBody2D"]
+position = Vector2(65, 516.75)
+shape = SubResource("RectangleShape2D_q34ae")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Level/StaticBody2D"]
+position = Vector2(501.5, 860.75)
+shape = SubResource("RectangleShape2D_f77hp")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Level/StaticBody2D"]
+position = Vector2(989, 411)
+shape = SubResource("RectangleShape2D_q34ae")
