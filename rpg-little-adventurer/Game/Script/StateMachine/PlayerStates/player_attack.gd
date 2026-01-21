@@ -3,6 +3,7 @@ extends State
 var facingDirection: String
 var attackCollisionShapre: CollisionShape2D
 @onready var attack_hit_box: Area2D = $"../../AttackHitBox"
+const VFX_SLASH = preload("uid://401odmsmc0rf")
 
 func Enter():
 	super.Enter()
@@ -41,4 +42,17 @@ func Exit():
 
 
 func _on_attack_hit_box_area_entered(area: Area2D) -> void:
-	area.get_parent().GetHit(character.attackDamage)
+	var grassNode = area as Grass
+	if grassNode:
+		grassNode.GetCut()	
+	var enemyNode = area.get_parent() as EnemyCharacter
+	if enemyNode:
+		enemyNode.GetHit(character.attackDamage, character.global_position)
+		if enemyNode.isDead == false:
+			SpwnSlashVFX(enemyNode.global_position)
+		
+
+func SpwnSlashVFX(pos: Vector2):
+	var newVFX = VFX_SLASH.instantiate() as Node2D
+	newVFX.global_position = pos + Vector2(0, -25)
+	get_tree().root.add_child(newVFX)

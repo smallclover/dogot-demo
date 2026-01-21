@@ -1,8 +1,9 @@
-[gd_scene load_steps=89 format=3 uid="uid://b61wju2i0gyd8"]
+[gd_scene load_steps=91 format=3 uid="uid://b61wju2i0gyd8"]
 
 [ext_resource type="Texture2D" uid="uid://blt6ycapyx33v" path="res://Asset/Animations/Enemy_Idle_Move_Hurt.png" id="1_qynk5"]
 [ext_resource type="Script" uid="uid://duwb02g68lgq6" path="res://Game/Script/enemy.gd" id="1_w6u1f"]
 [ext_resource type="Texture2D" uid="uid://bj5x0sexw6yi7" path="res://Asset/Animations/Enemy_Die.png" id="2_8n67n"]
+[ext_resource type="Shader" uid="uid://cy25f128itxey" path="res://Game/Shader/character.tres" id="2_bqbao"]
 [ext_resource type="Texture2D" uid="uid://c37tnkrxc03rb" path="res://Asset/Animations/Shadow.png" id="4_bqbao"]
 [ext_resource type="Script" uid="uid://dlvvr42ffqcfl" path="res://Game/Script/StateMachine/state_machine.gd" id="5_k5ifa"]
 [ext_resource type="Script" uid="uid://dv2uj1466jpin" path="res://Game/Script/StateMachine/EnemyState/enemy_idle.gd" id="5_qourr"]
@@ -12,6 +13,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uj5ri"]
 radius = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k5ifa"]
+shader = ExtResource("2_bqbao")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hjta8"]
 atlas = ExtResource("2_8n67n")
@@ -832,6 +836,8 @@ script = ExtResource("1_w6u1f")
 shape = SubResource("CircleShape2D_uj5ri")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_k5ifa")
+instance_shader_parameters/Blink = 0.0
 sprite_frames = SubResource("SpriteFrames_o5rr0")
 animation = &"Die_Left"
 frame = 10

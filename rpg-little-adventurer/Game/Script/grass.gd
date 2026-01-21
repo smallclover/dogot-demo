@@ -1,4 +1,5 @@
 extends Area2D
+class_name Grass
 
 # collision layer 表明该节点属于哪一层
 # collision mask 表明该节点与哪一层发生碰撞
@@ -13,6 +14,7 @@ var endScale = Vector2(1.0, 0.5)
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var sprite_2d_back: Sprite2D = $Sprite2D_Back
+const GRASS_CUT_VFX = preload("uid://bbvolgidj6qox")
 
 func _ready() -> void:
 	var startSkew = deg_to_rad(randf_range(-10, 10))
@@ -47,3 +49,17 @@ func CreateNewScaleTween(targetValue:Vector2, duration:float):
 	scaleTween = get_tree().create_tween()
 	scaleTween.tween_property(sprite_2d, "scale", targetValue, duration)
 	scaleTween.set_ease(Tween.EASE_OUT)
+
+func GetCut():
+	if skewTween:
+		skewTween.kill()
+	if scaleTween:
+		scaleTween.kill()
+	
+	if skewTweenBack:
+		skewTweenBack.kill()
+	
+	var grassCutVfxnode = GRASS_CUT_VFX.instantiate() as Node2D
+	grassCutVfxnode.global_position = global_position
+	get_parent().add_child(grassCutVfxnode)
+	queue_free()

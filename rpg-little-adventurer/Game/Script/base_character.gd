@@ -12,6 +12,7 @@ class_name BaseCharacter
 var isDead = false
 @export var attackDamage = 50
 
+var knockBackDirection: Vector2 = Vector2.ZERO
 var InputDirection: Vector2 = Vector2.ZERO
 var facingDirection: String = "Down"
 var animationToPlay: String
@@ -39,13 +40,23 @@ func GetDirectionName() -> String:
 func UpdateAnimation():
 	animated_sprite_2d.play(state_machine.currentState.name + "_" + GetDirectionName())
 	
-func GetHit(damage: int):
+func GetHit(damage: int, fromPoint = Vector2.ZERO):
 	if isDead:
 		return
 	
+	StartBlink()
 	currentHealth -= damage
+	
+	knockBackDirection = (global_position - fromPoint).normalized()
 	
 	if isDead:
 		state_machine.SwitchTo("Die")
 	else:
 		state_machine.SwitchTo("Hurt")
+		
+func UpdateBlink(newValue: float):
+	animated_sprite_2d.set_instance_shader_parameter("Blink", newValue)
+	
+func StartBlink():
+	var blink_tween = get_tree().create_tween()
+	blink_tween.tween_method(UpdateBlink, 1.0, 0.0, 0.3)
